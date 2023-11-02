@@ -9,29 +9,36 @@ import './Login.css';
 
 function Login() {
 
-    const navigate = useNavigate();
+    //Acessamos o contexto 
     const { usuario, handleLogin, isLoading } = useContext(AuthContext);
+    
+    //
+    const navigate = useNavigate();
 
-    const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>(
-        {} as UsuarioLogin
-    );
+    //
+    const [usuarioLogin, setUsuarioLogin] = useState<UsuarioLogin>({} as UsuarioLogin);
 
+    //Verifica se o token foi preenchido se sim ele vai para a home
     useEffect(() => {
         if (usuario.token !== "") {
             navigate('/home')
         }
     }, [usuario])
 
+    //Forma dinamica para atulizar os dados 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setUsuarioLogin({
             ...usuarioLogin,
             [e.target.name]: e.target.value
         })
     }
-
+    //Função preventDefault interrompe o carregamento da pagina
     function login(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault()
         handleLogin(usuarioLogin)
+        /*
+            handleLogin valida o login da pessoa usuaria 
+        */
     }
 
         return (
