@@ -25,7 +25,7 @@ function Login() {
         }
     }, [usuario])
 
-    //Forma dinamica para atulizar os dados 
+    //Forma dinamica para atualizar os dados 
     function atualizarEstado(e: ChangeEvent<HTMLInputElement>) {
         setUsuarioLogin({
             ...usuarioLogin,

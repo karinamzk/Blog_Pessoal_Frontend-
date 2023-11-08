@@ -12,7 +12,15 @@ function ListaTemas() {
 
     const [temas, setTemas] = useState<Tema[]>([]);
 
+    /*
+        temas 
+     */
+
     const navigate = useNavigate();
+
+    //  Criando uma constante que é o token 
+    //  informaçoes estão vindo do context 
+    //  Estamos desestroturando o context e pegando apenas o necessario 
 
     const { usuario, handleLogout } = useContext(AuthContext);
     const token = usuario.token;
